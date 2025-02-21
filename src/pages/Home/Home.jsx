@@ -1,6 +1,6 @@
+import { Outlet } from "react-router-dom";
 import Header from "../../components/Header";
 import LeftBar from "../../components/layout-components/LeftBar";
-import MainContent from "../../components/layout-components/MainContent";
 import RightBar from "../../components/layout-components/RightBar";
 import Navbar from "../../components/Navbar";
 import ScrollingNews from "../../components/ScrollingNews";
@@ -16,7 +16,7 @@ const Home = () => {
 					<LeftBar></LeftBar>
 				</div>
 				<div className="w-6/12 bg-indigo-500">
-					<MainContent></MainContent>
+					<Outlet></Outlet>
 				</div>
 				<div className="w-3/12">
 					<RightBar></RightBar>

@@ -1,5 +1,10 @@
+import { useLoaderData } from "react-router-dom";
+
 const MainContent = () => {
-	return <div>main</div>;
+	const dataFromAPI = useLoaderData();
+	// console.log(data.data);
+	const news = dataFromAPI.data;
+	return <div>Length is: {news.length}</div>;
 };
 
 export default MainContent;

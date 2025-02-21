@@ -1,5 +1,13 @@
+import FindUs from "../FindUs";
+import SocialLogin from "../SocialLogin";
+
 const RightBar = () => {
-	return <div>right</div>;
+	return (
+		<>
+			<SocialLogin></SocialLogin>
+            <FindUs></FindUs>
+		</>
+	);
 };
 
 export default RightBar;

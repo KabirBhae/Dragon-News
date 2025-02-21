@@ -11,3 +11,8 @@ html {
   font-weight: 400;
   font-style: normal;
 }
+
+a.active{
+  background-color: #e7e7e7;
+  color: black;
+}
