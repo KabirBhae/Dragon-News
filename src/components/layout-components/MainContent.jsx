@@ -7,9 +7,9 @@ const MainContent = () => {
 	const news = dataFromAPI.data;
 	return (
 		<div>
-			{news.map(newsItem => (
+			{news.length?  news.map(newsItem => (
 				<NewsCard key={newsItem._id} news={newsItem}></NewsCard>
-			))}
+			)) : <h2 className="text-2xl text-center">No news in this category!</h2>}
 		</div>
 	);
 };

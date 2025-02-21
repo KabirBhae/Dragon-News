@@ -1,11 +1,11 @@
 import { Outlet } from "react-router-dom";
-import Header from "../../components/Header";
-import LeftBar from "../../components/layout-components/LeftBar";
-import RightBar from "../../components/layout-components/RightBar";
-import Navbar from "../../components/Navbar";
-import ScrollingNews from "../../components/ScrollingNews";
+import Header from "../components/Header";
+import LeftBar from "../components/layout-components/LeftBar";
+import RightBar from "../components/layout-components/RightBar";
+import Navbar from "../components/Navbar";
+import ScrollingNews from "../components/ScrollingNews";
 
-const Home = () => {
+const HomeLayout = () => {
 	return (
 		<div className="mx-35 mt-12 poppins-regular text-black">
 			<Header></Header>
@@ -26,4 +26,4 @@ const Home = () => {
 	);
 };
 
-export default Home;
+export default HomeLayout;
