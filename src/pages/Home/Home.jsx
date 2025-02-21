@@ -15,7 +15,7 @@ const Home = () => {
 				<div className="w-3/12">
 					<LeftBar></LeftBar>
 				</div>
-				<div className="w-6/12 bg-indigo-500">
+				<div className="w-6/12">
 					<Outlet></Outlet>
 				</div>
 				<div className="w-3/12">

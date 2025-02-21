@@ -13,6 +13,10 @@ const router = createBrowserRouter([
 		errorElement: <ErrorPage></ErrorPage>,
 		children: [
 			{
+				path: "",
+				element: <Navigate to={"/category/01"}></Navigate>
+			},
+			{
 				path: "/category/:category_id",
 				loader: ({ params }) => fetch(`https://openapi.programming-hero.com/api/news/category/${params.category_id}`),
 				element: <MainContent></MainContent>,
