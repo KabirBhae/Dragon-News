@@ -2,9 +2,8 @@
 @import "tailwindcss";
 @plugin "daisyui";
 
-* {
-  background-color: white;  /* Light background */
-  color: black;             /* Light text color */
+html {
+  background-color: white;
 }
 
 .poppins-regular {

@@ -11,7 +11,7 @@ const Navbar = () => {
 			</div>
 			<div className="flex gap-3">
 				<img src={userImg} alt="" />
-				<div className="btn btn-neutral rounded-none w-full">
+				<div className="btn btn-neutral w-35 rounded-none">
 					<Link to="/login">
 						Login
 					</Link>
