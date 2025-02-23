@@ -1,23 +1,28 @@
-import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { useContext, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 
 const Register = () => {
 	const { registerUser } = useContext(AuthContext);
+	const navigate = useNavigate();
+	const [customError, setCustormError] = useState({})
 
 	const handleRegister = e => {
 		e.preventDefault();
 		const form = new FormData(e.target);
-		const name = form.get("name");
+		// const name = form.get("name");
 		const email = form.get("email");
-		const photoURL = form.get("photo");
+		// const photoURL = form.get("photo");
 		const password = form.get("password");
+
 
 		registerUser(email, password)
 			.then(() => {
-                console.log("user is created");
+				navigate("/");
 			})
-			.catch(err => console.error("failed to create user", err));
+			.catch(err =>{
+				setCustormError({...err, registerError: err.code});
+			});
 	};
 	return (
 		<div className="min-h-screen flex justify-center items-center">
@@ -40,13 +45,19 @@ const Register = () => {
 						<label className="label mb-2">
 							<span className="label-text text-base">Email address</span>
 						</label>
-						<input type="text" name="email" placeholder="Enter your email address" className="input input-bordered bg-[#f3f3f3] p-5 mb-3" required />
+						<input type="email" name="email" placeholder="Enter your email address" className="input input-bordered bg-[#f3f3f3] p-5 mb-3" required />
 					</div>
 					<div className="form-control">
 						<label className="label mb-2">
 							<span className="label-text text-base">Password</span>
 						</label>
 						<input type="password" name="password" placeholder="Enter your password" className="input input-bordered bg-[#f3f3f3] p-5 mb-3" required />
+						{customError && (
+							<label className="label mb-2">
+								<span className="label-text text-xs text-red-500">{customError.registerError}</span>
+							</label>
+						)}
+
 						{/* <label className="label">
 							<a href="#" className="label-text-alt link link-hover">
 								Forgot password?

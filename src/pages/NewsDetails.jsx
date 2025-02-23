@@ -6,7 +6,6 @@ import { IoArrowBackSharp } from "react-icons/io5";
 const NewsDetails = () => {
 	const data = useLoaderData();
 	const news = data.data[0];
-	console.log(news);
 	return (
 		<div className="mx-35 mt-12 poppins-regular text-black">
 			<Header></Header>

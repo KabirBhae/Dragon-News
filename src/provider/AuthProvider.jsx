@@ -17,15 +17,15 @@ const AuthProvider = ({ children }) => {
 
 	const registerUser = (email, password) => {
 		setIsLoading(true);
-		createUserWithEmailAndPassword(auth, email, password);
+		return createUserWithEmailAndPassword(auth, email, password);
 	};
 	const loginUser = (email, password) => {
 		setIsLoading(true);
-		signInWithEmailAndPassword(auth, email, password);
+		return signInWithEmailAndPassword(auth, email, password);
 	};
 	const logoutUser = () => {
 		setIsLoading(true);
-		signOut(auth);
+		return signOut(auth);
 	};
 	//for context API
 	const authInfo = {
