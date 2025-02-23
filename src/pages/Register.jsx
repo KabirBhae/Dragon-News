@@ -3,22 +3,28 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 
 const Register = () => {
-	const { registerUser } = useContext(AuthContext);
+	const { registerUser, updateUserInfo } = useContext(AuthContext);
 	const navigate = useNavigate();
 	const [customError, setCustormError] = useState({})
 
 	const handleRegister = e => {
 		e.preventDefault();
 		const form = new FormData(e.target);
-		// const name = form.get("name");
+		const name = form.get("name");
 		const email = form.get("email");
-		// const photoURL = form.get("photo");
+		const photoURL = form.get("photo");
 		const password = form.get("password");
 
 
 		registerUser(email, password)
 			.then(() => {
-				navigate("/");
+				updateUserInfo(name,photoURL)
+					.then(() => {
+						navigate("/");
+					})
+					.catch(err => {
+						setCustormError({ ...err, registerError: err.code });
+					});
 			})
 			.catch(err =>{
 				setCustormError({...err, registerError: err.code});
