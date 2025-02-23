@@ -1,5 +1,6 @@
 import { FaShareAlt, FaRegEye } from "react-icons/fa";
 import { AiFillStar } from "react-icons/ai";
+import { Link } from "react-router-dom";
 
 const NewsCard = (props = {}) => {
 	const { news } = props || {};
@@ -19,7 +20,10 @@ const NewsCard = (props = {}) => {
 				<h2 className="text-xl font-semibold mb-2">{news.title}</h2>
 				<img src={news.image_url} alt="News Thumbnail" className="w-full object-cover rounded-lg mb-4" />
 				<p className="text-gray-700 text-sm mb-4">
-					{news.details.slice(0, 150)}... <span className="text-primary">Read More</span>
+					{news.details.slice(0, 150)}...{" "}
+					<Link to={`/news/${news._id}`} className="text-primary">
+						Read More
+					</Link>
 				</p>
 			</div>
 
@@ -27,7 +31,7 @@ const NewsCard = (props = {}) => {
 			<div className="flex items-center justify-between text-gray-600 text-sm">
 				{/* Rating */}
 				<div className="flex items-center">
-                    {/* creating a dummy array of length 5, then iterate over the indexes (not the elements) */}
+					{/* creating a dummy array of length 5, then iterate over the indexes (not the elements) */}
 					{[...Array(5)].map((_, idx) => (
 						<AiFillStar key={idx} className={`text-yellow-500 ${idx < Math.round(news.rating.number) ? "" : "opacity-50"}`} />
 					))}
