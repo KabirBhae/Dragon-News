@@ -10,7 +10,7 @@ const NewsCard = (props = {}) => {
 				<img src={news.author.img} alt={news.author.name} className="w-10 h-10 rounded-full mr-3" />
 				<div>
 					<p className="font-semibold">{news.author.name}</p>
-					<p className="text-sm text-gray-500">{news.author.published_date}</p>
+					<p className="text-sm text-gray-500">{news.author.published_date.slice(0, -3)}</p>
 				</div>
 				<div className="ml-auto">
 					<FaShareAlt className="text-gray-600" />
